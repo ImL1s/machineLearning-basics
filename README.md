@@ -44,7 +44,10 @@ machineLearning-basics/
 │   ├── Classification/                 # 分類算法
 │   │   ├── 01_knn_classifier.py        # K-近鄰算法
 │   │   ├── 02_svm_classifier.py        # 支持向量機
-│   │   └── 03_random_forest.py         # 隨機森林
+│   │   ├── 03_random_forest.py         # 隨機森林
+│   │   ├── 04_logistic_regression.py   # 邏輯回歸
+│   │   ├── 05_naive_bayes.py           # 樸素貝葉斯
+│   │   └── 06_gradient_boosting_xgboost.py  # 梯度提升/XGBoost
 │   └── Regression/                     # 回歸算法
 │       └── 01_linear_regression.py     # 線性回歸系列
 │
@@ -58,12 +61,14 @@ machineLearning-basics/
 │   └── feature_engineering_guide.py    # 特徵工程完整指南
 │
 ├── 05_ModelEvaluation/                 # 模型評估與調參
-│   └── model_evaluation_guide.py       # 評估和調參指南
+│   ├── model_evaluation_guide.py       # 評估和調參指南
+│   └── model_persistence.py            # 模型保存和加載
 │
 ├── 06_DeepLearning/                    # 深度學習
 │   └── 01_keras_basics.py              # Keras/TensorFlow 基礎
 │
-├── 07_Projects/                        # 實戰項目（待添加）
+├── 07_Projects/                        # 實戰項目
+│   └── 01_titanic_survival_prediction.py  # 泰坦尼克號生存預測
 │
 ├── DecisionTree/                       # 決策樹（原始項目，已優化）
 │   ├── main.py                         # 決策樹完整示例
@@ -134,6 +139,9 @@ python DecisionTree/main.py
    - 支持向量機（SVM）→ `02_SupervisedLearning/Classification/02_svm_classifier.py`
    - 決策樹 → `DecisionTree/main.py`
    - 隨機森林 → `02_SupervisedLearning/Classification/03_random_forest.py`
+   - 邏輯回歸 → `02_SupervisedLearning/Classification/04_logistic_regression.py`
+   - 樸素貝葉斯 → `02_SupervisedLearning/Classification/05_naive_bayes.py`
+   - 梯度提升/XGBoost → `02_SupervisedLearning/Classification/06_gradient_boosting_xgboost.py`
 
 4. **回歸算法**
    - 線性回歸 → `02_SupervisedLearning/Regression/01_linear_regression.py`
@@ -152,10 +160,11 @@ python DecisionTree/main.py
    - 特徵縮放
    - 特徵選擇
 
-8. **模型評估** → `05_ModelEvaluation/model_evaluation_guide.py`
-   - 評估指標
+8. **模型評估與持久化**
+   - 評估指標 → `05_ModelEvaluation/model_evaluation_guide.py`
    - 交叉驗證
    - 超參數調優
+   - 模型保存和加載 → `05_ModelEvaluation/model_persistence.py`
 
 #### 階段 5：深度學習入門（2-3週）
 9. **神經網絡基礎** → `06_DeepLearning/01_keras_basics.py`
@@ -200,13 +209,20 @@ python DecisionTree/main.py
 
 | 算法 | 類型 | 適用場景 | 優點 | 缺點 |
 |------|------|----------|------|------|
+| **分類算法** |
 | KNN | 分類/回歸 | 小規模數據 | 簡單直觀 | 預測慢 |
+| Logistic Regression | 分類 | 線性可分 | 快速，可解釋 | 只能線性 |
+| Naive Bayes | 分類 | 文本分類 | 極快，高維 | 假設特徵獨立 |
 | SVM | 分類/回歸 | 中小規模，高維 | 泛化能力強 | 大數據慢 |
 | 決策樹 | 分類/回歸 | 需要可解釋性 | 易理解 | 容易過擬合 |
 | 隨機森林 | 分類/回歸 | 表格數據 | 準確率高 | 模型大 |
-| XGBoost | 分類/回歸 | 競賽/生產 | 性能最優 | 調參複雜 |
+| XGBoost/Gradient Boosting | 分類/回歸 | 競賽/生產 | 性能最優 | 調參複雜 |
+| **回歸算法** |
 | 線性回歸 | 回歸 | 線性關係 | 簡單快速 | 只能線性 |
+| Ridge/Lasso | 回歸 | 需要正則化 | 防止過擬合 | 需調參 |
+| **聚類算法** |
 | K-Means | 聚類 | 球形簇 | 快速 | 需指定K |
+| **降維算法** |
 | PCA | 降維 | 高維可視化 | 去相關 | 難解釋 |
 
 ### 🤝 貢獻
