@@ -36,9 +36,13 @@
 ```
 machineLearning-basics/
 │
+├── 00_QuickStart/                      # ⭐ 快速入門（新增）
+│   └── quick_start_guide.py            # 5分鐘快速上手指南
+│
 ├── 01_Basics/                          # 機器學習基礎
 │   ├── 01_introduction.py              # ML 基本概念和術語
-│   └── 02_numpy_pandas_basics.py       # NumPy 和 Pandas 基礎
+│   ├── 02_numpy_pandas_basics.py       # NumPy 和 Pandas 基礎
+│   └── 03_data_visualization.py        # ⭐ 數據可視化完整教程（新增）
 │
 ├── 02_SupervisedLearning/              # 監督學習
 │   ├── Classification/                 # 分類算法
@@ -58,11 +62,13 @@ machineLearning-basics/
 │       └── 01_pca.py                   # 主成分分析
 │
 ├── 04_FeatureEngineering/              # 特徵工程
-│   └── feature_engineering_guide.py    # 特徵工程完整指南
+│   ├── feature_engineering_guide.py    # 特徵工程完整指南
+│   └── handling_imbalanced_data.py     # ⭐ 處理不平衡數據（新增）
 │
 ├── 05_ModelEvaluation/                 # 模型評估與調參
 │   ├── model_evaluation_guide.py       # 評估和調參指南
-│   └── model_persistence.py            # 模型保存和加載
+│   ├── model_persistence.py            # 模型保存和加載
+│   └── pipeline_guide.py               # ⭐ Pipeline 完整使用指南（新增）
 │
 ├── 06_DeepLearning/                    # 深度學習
 │   └── 01_keras_basics.py              # Keras/TensorFlow 基礎
@@ -70,12 +76,16 @@ machineLearning-basics/
 ├── 07_Projects/                        # 實戰項目
 │   └── 01_titanic_survival_prediction.py  # 泰坦尼克號生存預測
 │
+├── 08_TipsAndTricks/                   # ⭐ 技巧與最佳實踐（新增）
+│   └── common_mistakes_and_debugging.md    # 常見錯誤和調試指南
+│
 ├── DecisionTree/                       # 決策樹（原始項目，已優化）
 │   ├── main.py                         # 決策樹完整示例
 │   └── data.csv                        # 示例數據
 │
 ├── requirements.txt                    # 依賴套件
 ├── .gitignore                          # Git 忽略文件
+├── LICENSE                             # MIT 許可證
 └── README.md                           # 本文件
 ```
 
@@ -110,8 +120,14 @@ pip install -r requirements.txt
 #### 4. 運行示例
 
 ```bash
+# ⭐ 新手推薦：5分鐘快速入門
+python 00_QuickStart/quick_start_guide.py
+
 # 運行機器學習基礎教程
 python 01_Basics/01_introduction.py
+
+# 運行數據可視化教程
+python 01_Basics/03_data_visualization.py
 
 # 運行 KNN 分類器
 python 02_SupervisedLearning/Classification/01_knn_classifier.py
@@ -122,6 +138,12 @@ python DecisionTree/main.py
 
 ### 📚 學習路徑
 
+#### 階段 0：快速入門（0.5小時）⭐ 新增
+0. **5分鐘快速上手** → `00_QuickStart/quick_start_guide.py`
+   - 完整機器學習工作流程
+   - 從數據加載到模型預測
+   - 快速體驗 ML 魅力
+
 #### 階段 1：基礎知識（1-2週）
 1. **機器學習概念** → `01_Basics/01_introduction.py`
    - 了解 ML 基本概念
@@ -131,7 +153,11 @@ python DecisionTree/main.py
 2. **工具基礎** → `01_Basics/02_numpy_pandas_basics.py`
    - NumPy 數組操作
    - Pandas 數據處理
-   - 數據可視化
+
+3. **數據可視化** → `01_Basics/03_data_visualization.py` ⭐ 新增
+   - Matplotlib 基礎繪圖
+   - Seaborn 統計圖表
+   - ML 專用可視化（決策邊界、學習曲線等）
 
 #### 階段 2：監督學習（2-3週）
 3. **分類算法**
@@ -159,11 +185,13 @@ python DecisionTree/main.py
    - 數據預處理
    - 特徵縮放
    - 特徵選擇
+   - 處理不平衡數據 → `04_FeatureEngineering/handling_imbalanced_data.py` ⭐ 新增
 
-8. **模型評估與持久化**
+8. **模型評估與調優**
    - 評估指標 → `05_ModelEvaluation/model_evaluation_guide.py`
    - 交叉驗證
    - 超參數調優
+   - Pipeline 完整指南 → `05_ModelEvaluation/pipeline_guide.py` ⭐ 新增
    - 模型保存和加載 → `05_ModelEvaluation/model_persistence.py`
 
 #### 階段 5：深度學習入門（2-3週）
@@ -171,6 +199,18 @@ python DecisionTree/main.py
    - 全連接神經網絡（MLP）
    - 卷積神經網絡（CNN）
    - Keras/TensorFlow 使用
+
+#### 階段 6：最佳實踐與實戰（1-2週）⭐ 新增
+10. **實戰項目** → `07_Projects/01_titanic_survival_prediction.py`
+    - 完整的 Kaggle 競賽項目
+    - 從數據探索到模型部署
+    - 實戰中學習最佳實踐
+
+11. **技巧與避坑指南** → `08_TipsAndTricks/common_mistakes_and_debugging.md` ⭐ 新增
+    - 常見錯誤和解決方案
+    - 數據洩漏、過擬合等問題
+    - 調試技巧和最佳實踐
+    - 生產環境部署注意事項
 
 ### 🔧 依賴套件
 
@@ -288,8 +328,14 @@ pip install -r requirements.txt
 #### 4. Run Examples
 
 ```bash
+# ⭐ Recommended for beginners: 5-minute quick start
+python 00_QuickStart/quick_start_guide.py
+
 # Run ML basics tutorial
 python 01_Basics/01_introduction.py
+
+# Run data visualization tutorial
+python 01_Basics/03_data_visualization.py
 
 # Run KNN classifier
 python 02_SupervisedLearning/Classification/01_knn_classifier.py
@@ -297,25 +343,35 @@ python 02_SupervisedLearning/Classification/01_knn_classifier.py
 
 ### 📚 Learning Path
 
-1. **Basics** (1-2 weeks)
-   - ML concepts and terminology
-   - NumPy and Pandas basics
+**Stage 0: Quick Start** (0.5 hour) ⭐ New
+- 5-minute ML workflow → `00_QuickStart/quick_start_guide.py`
 
-2. **Supervised Learning** (2-3 weeks)
-   - Classification: KNN, SVM, Decision Trees, Random Forest
-   - Regression: Linear Regression, Ridge, Lasso
+**Stage 1: Basics** (1-2 weeks)
+- ML concepts and terminology → `01_Basics/01_introduction.py`
+- NumPy and Pandas basics → `01_Basics/02_numpy_pandas_basics.py`
+- Data Visualization ⭐ New → `01_Basics/03_data_visualization.py`
 
-3. **Unsupervised Learning** (1-2 weeks)
-   - Clustering: K-Means
-   - Dimensionality Reduction: PCA
+**Stage 2: Supervised Learning** (2-3 weeks)
+- Classification: KNN, SVM, Decision Trees, Random Forest, Logistic Regression, Naive Bayes, XGBoost
+- Regression: Linear Regression, Ridge, Lasso
 
-4. **Advanced Techniques** (2 weeks)
-   - Feature Engineering
-   - Model Evaluation and Tuning
+**Stage 3: Unsupervised Learning** (1-2 weeks)
+- Clustering: K-Means
+- Dimensionality Reduction: PCA
 
-5. **Deep Learning Introduction** (2-3 weeks)
-   - Neural Networks (MLP, CNN)
-   - Keras/TensorFlow basics
+**Stage 4: Advanced Techniques** (2 weeks)
+- Feature Engineering
+- Handling Imbalanced Data ⭐ New → `04_FeatureEngineering/handling_imbalanced_data.py`
+- Pipeline Guide ⭐ New → `05_ModelEvaluation/pipeline_guide.py`
+- Model Evaluation and Tuning
+
+**Stage 5: Deep Learning Introduction** (2-3 weeks)
+- Neural Networks (MLP, CNN)
+- Keras/TensorFlow basics
+
+**Stage 6: Best Practices & Projects** (1-2 weeks) ⭐ New
+- Real-world project: Titanic Survival Prediction
+- Common Mistakes & Debugging ⭐ New → `08_TipsAndTricks/common_mistakes_and_debugging.md`
 
 ### 🎯 Algorithm Summary
 
