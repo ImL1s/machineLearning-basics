@@ -113,9 +113,37 @@ source venv/bin/activate
 
 #### 3. 安裝依賴
 
+我們提供了分層的依賴文件，您可以根據需求選擇安裝：
+
+**方式 1：最小安裝（推薦初學者，約 2 分鐘）**
 ```bash
 pip install -r requirements.txt
 ```
+包含：NumPy、Pandas、Matplotlib、Seaborn、scikit-learn
+
+**方式 2：完整機器學習功能（約 3 分鐘）**
+```bash
+pip install -r requirements.txt -r requirements-ml.txt
+```
+額外包含：XGBoost、LightGBM、imbalanced-learn
+
+**方式 3：包含深度學習（約 10 分鐘，較大）**
+```bash
+pip install -r requirements.txt -r requirements-dl.txt
+```
+額外包含：TensorFlow/Keras（約 500MB）
+
+**方式 4：開發環境（含 Jupyter）**
+```bash
+pip install -r requirements.txt -r requirements-dev.txt
+```
+額外包含：JupyterLab、Notebook
+
+**方式 5：完整安裝（所有功能，約 15 分鐘）**
+```bash
+pip install -r requirements.txt -r requirements-ml.txt -r requirements-dl.txt -r requirements-advanced.txt
+```
+包含所有工具（SHAP、LIME、Optuna 等）
 
 #### 4. 運行示例
 
@@ -321,9 +349,37 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 #### 3. Install Dependencies
 
+We provide layered dependency files. Choose based on your needs:
+
+**Option 1: Minimal Installation (Recommended for beginners, ~2 minutes)**
 ```bash
 pip install -r requirements.txt
 ```
+Includes: NumPy, Pandas, Matplotlib, Seaborn, scikit-learn
+
+**Option 2: Full ML Features (~3 minutes)**
+```bash
+pip install -r requirements.txt -r requirements-ml.txt
+```
+Additionally includes: XGBoost, LightGBM, imbalanced-learn
+
+**Option 3: With Deep Learning (~10 minutes, large)**
+```bash
+pip install -r requirements.txt -r requirements-dl.txt
+```
+Additionally includes: TensorFlow/Keras (~500MB)
+
+**Option 4: Development Environment (with Jupyter)**
+```bash
+pip install -r requirements.txt -r requirements-dev.txt
+```
+Additionally includes: JupyterLab, Notebook
+
+**Option 5: Complete Installation (all features, ~15 minutes)**
+```bash
+pip install -r requirements.txt -r requirements-ml.txt -r requirements-dl.txt -r requirements-advanced.txt
+```
+Includes all tools (SHAP, LIME, Optuna, etc.)
 
 #### 4. Run Examples
 

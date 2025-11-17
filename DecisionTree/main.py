@@ -5,6 +5,7 @@
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 from sklearn.feature_extraction import DictVectorizer
 from sklearn import preprocessing
 from sklearn import tree
@@ -13,30 +14,62 @@ from sklearn.metrics import classification_report, confusion_matrix
 import warnings
 warnings.filterwarnings('ignore')
 
+# 導入工具模塊（如果在專案根目錄運行）
+try:
+    import sys
+    sys.path.append(str(Path(__file__).parent.parent))
+    from utils.config import RANDOM_STATE
+    from utils.plotting import setup_chinese_fonts
+    USE_UTILS = True
+except ImportError:
+    # 如果無法導入工具模塊，使用默認值
+    RANDOM_STATE = 42
+    USE_UTILS = False
+
 print("=" * 60)
 print("決策樹分類器範例 - Decision Tree Classifier")
 print("=" * 60)
 
 # 讀取 CSV 文件並獲取特徵和標籤
 print("\n步驟 1: 讀取數據...")
-allElectronicsData = open(r'./data.csv', 'r', encoding='utf-8')
-reader = csv.reader(allElectronicsData)
-headers = next(reader)
-print(f"欄位名稱: {headers}")
 
-featureList = []
-labelList = []
+# 使用絕對路徑（基於文件位置）
+data_path = Path(__file__).parent / 'data.csv'
 
-for row in reader:
-    labelList.append(row[len(row) - 1])
-    rowDict = {}
-    for i in range(1, len(row) - 1):
-        rowDict[headers[i]] = row[i]
-    featureList.append(rowDict)
+if not data_path.exists():
+    raise FileNotFoundError(f"數據文件不存在: {data_path}")
 
-print(f"\n共有 {len(featureList)} 筆數據")
-print(f"特徵範例: {featureList[0]}")
-print(f"標籤範例: {labelList[:5]}")
+try:
+    allElectronicsData = open(data_path, 'r', encoding='utf-8')
+    reader = csv.reader(allElectronicsData)
+    headers = next(reader)
+    print(f"欄位名稱: {headers}")
+
+    featureList = []
+    labelList = []
+
+    for row in reader:
+        if not row:  # 跳過空行
+            continue
+        labelList.append(row[len(row) - 1])
+        rowDict = {}
+        for i in range(1, len(row) - 1):
+            rowDict[headers[i]] = row[i]
+        featureList.append(rowDict)
+
+    allElectronicsData.close()
+
+    print(f"\n共有 {len(featureList)} 筆數據")
+    print(f"特徵範例: {featureList[0]}")
+    print(f"標籤範例: {labelList[:5]}")
+
+except FileNotFoundError as e:
+    print(f"✗ 錯誤: {e}")
+    print("請確保 data.csv 文件存在於 DecisionTree 目錄中")
+    exit(1)
+except Exception as e:
+    print(f"✗ 讀取數據時出錯: {e}")
+    exit(1)
 
 # 步驟 2: 特徵向量化 (One-Hot Encoding)
 print("\n步驟 2: 特徵向量化...")

@@ -1,0 +1,37 @@
+# 深度學習依賴
+# Deep Learning Dependencies
+#
+# 包含 TensorFlow/Keras 深度學習框架
+# Includes TensorFlow/Keras for deep learning
+
+# ============================================================================
+# 深度學習框架 / Deep Learning Framework
+# ============================================================================
+# 使用 TensorFlow 內建的 Keras，不需要單獨安裝 Keras
+# Use TensorFlow's built-in Keras, no need to install Keras separately
+tensorflow>=2.15.0,<3.0.0
+
+# 注意：請使用 from tensorflow import keras 而非 import keras
+# Note: Use "from tensorflow import keras" instead of "import keras"
+
+# ============================================================================
+# 可選：PyTorch（目前專案未使用）/ Optional: PyTorch (not currently used)
+# ============================================================================
+# 如果您想學習 PyTorch，可以取消註釋以下兩行
+# Uncomment the following lines if you want to learn PyTorch
+#
+# torch>=2.1.0,<3.0.0
+# torchvision>=0.16.0,<1.0.0
+
+# ============================================================================
+# 使用說明 / Usage
+# ============================================================================
+#
+# 安裝核心依賴和深度學習框架：
+# Install core and deep learning dependencies:
+#
+#   pip install -r requirements.txt -r requirements-dl.txt
+#
+# 注意：TensorFlow 安裝包較大（約 500MB+），需要較長時間
+# Note: TensorFlow package is large (~500MB+) and takes time to install
+#
