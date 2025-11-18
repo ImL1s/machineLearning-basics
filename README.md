@@ -53,7 +53,9 @@ machineLearning-basics/
 │   │   ├── 05_naive_bayes.py           # 樸素貝葉斯
 │   │   └── 06_gradient_boosting_xgboost.py  # 梯度提升/XGBoost
 │   ├── Regression/                     # 回歸算法
-│   │   └── 01_linear_regression.py     # 線性回歸系列
+│   │   ├── 01_linear_regression.py     # 線性回歸系列
+│   │   ├── 02_nonlinear_regression.py  # 🆕 非線性回歸（多項式、SVR、樣條）
+│   │   └── 03_tree_based_regression.py # 🆕 樹模型回歸（RF、GBDT、XGBoost、LightGBM）
 │   └── Ensemble/                       # 🆕 集成學習（新增）
 │       ├── 01_voting_classifier.py     # 投票分類器
 │       ├── 02_adaboost.py              # AdaBoost 算法
@@ -85,10 +87,33 @@ machineLearning-basics/
 │   └── 01_keras_basics.py              # Keras/TensorFlow 基礎
 │
 ├── 07_Projects/                        # 實戰項目
-│   └── 01_titanic_survival_prediction.py  # 泰坦尼克號生存預測
+│   ├── 01_titanic_survival_prediction.py  # 泰坦尼克號生存預測
+│   ├── 02_house_price_prediction.py    # 🆕 房價預測（回歸項目）
+│   └── 03_customer_churn_prediction.py # 🆕 客戶流失預測（不平衡分類）
 │
 ├── 08_TipsAndTricks/                   # ⭐ 技巧與最佳實踐
 │   └── common_mistakes_and_debugging.md    # 常見錯誤和調試指南
+│
+├── 09_TimeSeries/                      # 🆕 時間序列分析（新增）
+│   ├── 01_time_series_basics.py        # 時間序列基礎（平穩性、ACF/PACF）
+│   ├── 02_arima.py                     # ARIMA 模型（含 SARIMA）
+│   ├── 03_forecasting_methods.py       # 預測方法大比拼（14種方法）
+│   ├── README.md                       # 模塊完整指南
+│   ├── QUICK_START.md                  # 快速入門
+│   ├── PROJECT_SUMMARY.md              # 項目總結
+│   └── VISUALIZATION_INDEX.md          # 可視化索引
+│
+├── 10_NLP/                             # 🆕 自然語言處理基礎（新增）
+│   ├── 01_text_preprocessing.py        # 文本預處理（中英文支持）
+│   ├── 02_feature_extraction.py        # 特徵提取（BoW、TF-IDF、Word2Vec）
+│   └── 03_text_classification.py       # 文本分類（20 Newsgroups）
+│
+├── 11_Resources/                       # 🆕 學習資源（新增）
+│   ├── algorithm_cheatsheet.md         # 算法速查表（20+算法對比）
+│   ├── sklearn_cheatsheet.md           # Sklearn API 速查表
+│   ├── best_practices.md               # 最佳實踐指南
+│   ├── learning_roadmap.md             # 完整學習路線圖
+│   └── interview_questions.md          # 面試題集（150+問題）
 │
 ├── DecisionTree/                       # 決策樹（原始項目，已優化）
 │   ├── main.py                         # 決策樹完整示例
@@ -222,6 +247,8 @@ python DecisionTree/main.py
 4. **回歸算法**
    - 線性回歸 → `02_SupervisedLearning/Regression/01_linear_regression.py`
    - Ridge、Lasso、ElasticNet
+   - 🆕 非線性回歸 → `02_SupervisedLearning/Regression/02_nonlinear_regression.py`
+   - 🆕 樹模型回歸 → `02_SupervisedLearning/Regression/03_tree_based_regression.py`
 
 5. **🆕 集成學習**（新增）
    - 投票分類器 → `02_SupervisedLearning/Ensemble/01_voting_classifier.py`
@@ -263,55 +290,184 @@ python DecisionTree/main.py
     - 卷積神經網絡（CNN）
     - Keras/TensorFlow 使用
 
-#### 階段 6：最佳實踐與實戰（1-2週）⭐
-12. **實戰項目** → `07_Projects/01_titanic_survival_prediction.py`
-    - 完整的 Kaggle 競賽項目
-    - 從數據探索到模型部署
-    - 實戰中學習最佳實踐
+#### 階段 6：時間序列分析（2-3週）🆕 新增
+12. **時間序列基礎** → `09_TimeSeries/01_time_series_basics.py`
+    - 平穩性檢驗（ADF、KPSS）
+    - ACF/PACF 分析
+    - 差分和季節性分解
 
-13. **技巧與避坑指南** → `08_TipsAndTricks/common_mistakes_and_debugging.md` ⭐
+13. **ARIMA 模型** → `09_TimeSeries/02_arima.py`
+    - ARIMA 參數選擇
+    - SARIMA 季節性模型
+    - Auto ARIMA 自動調參
+
+14. **預測方法比較** → `09_TimeSeries/03_forecasting_methods.py`
+    - 14種預測方法（統計方法 + ML方法）
+    - 性能基準測試
+    - 模型選擇指南
+
+#### 階段 7：自然語言處理基礎（2-3週）🆕 新增
+15. **文本預處理** → `10_NLP/01_text_preprocessing.py`
+    - 文本清洗和標準化
+    - 分詞（中英文）
+    - 詞幹提取和詞形還原
+
+16. **特徵提取** → `10_NLP/02_feature_extraction.py`
+    - Bag of Words（BoW）
+    - TF-IDF 權重
+    - Word2Vec 詞嵌入
+
+17. **文本分類** → `10_NLP/03_text_classification.py`
+    - 20 Newsgroups 數據集
+    - 5種分類器比較
+    - 完整的NLP流程
+
+#### 階段 8：最佳實踐與實戰（2-3週）⭐
+18. **實戰項目**
+    - 泰坦尼克號生存預測 → `07_Projects/01_titanic_survival_prediction.py`
+    - 🆕 房價預測 → `07_Projects/02_house_price_prediction.py`
+    - 🆕 客戶流失預測 → `07_Projects/03_customer_churn_prediction.py`
+
+19. **技巧與避坑指南** → `08_TipsAndTricks/common_mistakes_and_debugging.md` ⭐
     - 常見錯誤和解決方案
     - 數據洩漏、過擬合等問題
     - 調試技巧和最佳實踐
     - 生產環境部署注意事項
 
-### 🆕 本次更新亮點
+20. **學習資源** → `11_Resources/` 🆕 新增
+    - 算法速查表 → `algorithm_cheatsheet.md`
+    - Sklearn API 參考 → `sklearn_cheatsheet.md`
+    - 最佳實踐 → `best_practices.md`
+    - 學習路線圖 → `learning_roadmap.md`
+    - 面試題集 → `interview_questions.md`（150+問題）
 
-#### 新增模塊（9個文件，5000+ 行代碼）
+### 🆕 本次更新亮點（Round 4）
 
-1. **集成學習模塊** （3個文件）
-   - Voting Classifier：硬投票 vs 軟投票，15張圖表
-   - AdaBoost：完整的Boosting理論和實踐，20張圖表
-   - Stacking：兩層學習架構，15張圖表
+**新增 15 個 Python 文件 + 9 個 Markdown 文檔，共 9,000+ 行代碼，80+ 張圖表**
 
-2. **聚類算法擴展** （2個文件）
-   - DBSCAN：密度聚類，處理非凸形狀，7張圖表
-   - 層次聚類：樹狀圖、距離矩陣，8張圖表
+#### 1. 🕐 時間序列分析模塊（3 Python + 4 MD，2,706 行代碼）
 
-3. **降維可視化** （1個文件）
-   - t-SNE 和 UMAP：參數分析、性能對比，10張圖表
+- **時間序列基礎** `09_TimeSeries/01_time_series_basics.py` (717 行)
+  - 平穩性檢驗（ADF、KPSS）
+  - ACF/PACF 自相關分析
+  - 移動平均和指數平滑
+  - 8 張專業圖表
 
-4. **異常檢測模塊** （2個文件）
-   - Isolation Forest：信用卡欺詐、網絡入侵、設備故障，9張圖表
-   - One-Class SVM：多種核函數對比，9張圖表
+- **ARIMA 模型** `09_TimeSeries/02_arima.py` (825 行)
+  - ARIMA 模型實現和參數選擇
+  - SARIMA 季節性建模
+  - Auto ARIMA 自動調參
+  - 9 張預測和診斷圖表
 
-5. **模型解釋性** （1個文件）
-   - SHAP：全局和局部解釋，8張SHAP可視化
-   - LIME：模型無關解釋（需安裝lime包）
-   - SHAP vs LIME 詳細對比
+- **預測方法大比拼** `09_TimeSeries/03_forecasting_methods.py` (1,164 行)
+  - 14+ 種預測方法（Naive、MA、ES、ARIMA、ML方法）
+  - 完整性能基準測試
+  - 模型選擇決策樹
+  - 12 張對比圖表
 
-#### 基礎設施改進
+- **完整文檔**
+  - README.md（模塊指南）
+  - QUICK_START.md（快速入門）
+  - PROJECT_SUMMARY.md（項目總結）
+  - VISUALIZATION_INDEX.md（可視化索引）
 
-6. **工具模塊（utils/）**
-   - 統一配置管理（config.py）
-   - 路徑管理（paths.py）
-   - 繪圖工具（plotting.py）
-   - 完整使用指南
+#### 2. 📝 自然語言處理基礎模塊（3 Python，2,668 行代碼）
 
-7. **依賴管理重構**
-   - 分層依賴文件（核心、ML、DL、高級、開發）
-   - 安裝時間減少60%
-   - 移除未使用的PyTorch（節省700MB+）
+- **文本預處理** `10_NLP/01_text_preprocessing.py` (943 行)
+  - 文本清洗和標準化
+  - 中英文分詞支持
+  - 詞幹提取（Stemming）和詞形還原（Lemmatization）
+  - 停用詞處理
+  - 8 張文本分析圖表
+
+- **特徵提取** `10_NLP/02_feature_extraction.py` (794 行)
+  - Bag of Words（BoW）
+  - TF-IDF 權重計算
+  - Word2Vec 詞嵌入
+  - 文檔相似度計算
+  - 10 張特徵可視化圖表
+
+- **文本分類** `10_NLP/03_text_classification.py` (931 行)
+  - 使用 20 Newsgroups 數據集
+  - 5 種分類器比較（Naive Bayes、Logistic Regression、SVM 等）
+  - 完整的 NLP Pipeline
+  - 12 張分類結果圖表
+
+#### 3. 📈 回歸算法擴展（2 Python，~1,400 行代碼）
+
+- **非線性回歸** `02_SupervisedLearning/Regression/02_nonlinear_regression.py` (~650 行)
+  - 多項式回歸（不同階數對比）
+  - 支持向量回歸（SVR）
+  - 樣條回歸
+  - 過擬合分析
+  - 7 張回歸分析圖表
+
+- **樹模型回歸** `02_SupervisedLearning/Regression/03_tree_based_regression.py` (~750 行)
+  - Decision Tree 回歸
+  - Random Forest 回歸
+  - Gradient Boosting 回歸
+  - XGBoost 回歸
+  - LightGBM 回歸
+  - 特徵重要性對比
+  - 10 張模型對比圖表
+
+#### 4. 🏆 新實戰項目（2 Python，2,306 行代碼）
+
+- **房價預測** `07_Projects/02_house_price_prediction.py` (1,071 行)
+  - 完整的回歸項目流程
+  - 8 種回歸模型比較
+  - 特徵工程（10+ 新特徵）
+  - 模型融合
+  - 業務洞察和建議
+  - 21 張專業圖表
+
+- **客戶流失預測** `07_Projects/03_customer_churn_prediction.py` (1,235 行)
+  - 不平衡分類問題處理
+  - 4 種採樣策略（原始、class weight、SMOTE、欠採樣）
+  - 業務 ROI 分析
+  - 客戶細分和保留策略
+  - 21 張業務分析圖表
+
+#### 5. 📚 學習資源（5 Markdown，203KB）
+
+- **算法速查表** `11_Resources/algorithm_cheatsheet.md` (22KB)
+  - 20+ 算法對比表
+  - 算法選擇決策樹
+  - 參數調優指南
+
+- **Sklearn API 速查表** `11_Resources/sklearn_cheatsheet.md` (32KB)
+  - 常用 API 快速參考
+  - 完整代碼示例
+  - Pipeline 最佳實踐
+
+- **最佳實踐指南** `11_Resources/best_practices.md` (34KB)
+  - 數據預處理最佳實踐
+  - 模型選擇和調優
+  - 生產環境部署
+  - 常見陷阱和避坑指南
+
+- **學習路線圖** `11_Resources/learning_roadmap.md` (36KB)
+  - 完整學習路徑規劃
+  - 每階段學習建議
+  - 實踐項目推薦
+
+- **面試題集** `11_Resources/interview_questions.md` (79KB)
+  - 150+ 機器學習面試問題
+  - 詳細答案和解釋
+  - 代碼實現示例
+  - 使用 `<details>` 標籤可折疊
+
+---
+
+### 📊 專案統計（更新後）
+
+- **Python 文件**：40+ 個
+- **代碼總量**：17,000+ 行
+- **可視化圖表**：180+ 張
+- **文檔**：15+ 份完整文檔
+- **覆蓋算法**：30+ 種機器學習算法
+- **實戰項目**：3 個完整項目
+- **學習資源**：5 份速查表和指南
 
 ### 🔧 依賴套件
 
@@ -329,13 +485,27 @@ python DecisionTree/main.py
 ### 📊 數據集
 
 本教程使用的數據集：
+
+**分類數據集**
 - **Iris（鳶尾花）**：經典分類數據集
 - **Wine（葡萄酒）**：多分類數據集
 - **Breast Cancer（乳腺癌）**：二分類數據集
-- **Diabetes（糖尿病）**：回歸數據集
 - **Digits（手寫數字）**：圖像分類數據集
 
-所有數據集都來自 scikit-learn 內置數據集，無需額外下載。
+**回歸數據集**
+- **Diabetes（糖尿病）**：回歸數據集
+- **California Housing（加州房價）**：🆕 房價預測數據集
+- **Boston Housing（波士頓房價）**：房價分析數據集
+
+**時間序列數據集** 🆕
+- **航空乘客數據**：經典時間序列數據
+- **CO2 數據**：季節性時間序列
+
+**NLP 數據集** 🆕
+- **20 Newsgroups**：文本分類數據集
+- **SMS Spam Collection**：垃圾郵件分類
+
+大部分數據集來自 scikit-learn 內置數據集，無需額外下載。
 
 ### 💡 學習建議
 
@@ -361,10 +531,29 @@ python DecisionTree/main.py
 | **回歸算法** |
 | 線性回歸 | 回歸 | 線性關係 | 簡單快速 | 只能線性 |
 | Ridge/Lasso | 回歸 | 需要正則化 | 防止過擬合 | 需調參 |
+| 🆕 多項式回歸 | 回歸 | 非線性關係 | 靈活 | 易過擬合 |
+| 🆕 SVR | 回歸 | 非線性，高維 | 泛化能力強 | 計算慢 |
+| **集成學習** |
+| 🆕 Voting | 分類/回歸 | 模型融合 | 提高穩定性 | 計算開銷大 |
+| 🆕 AdaBoost | 分類/回歸 | 弱學習器提升 | 高準確率 | 對噪聲敏感 |
+| 🆕 Stacking | 分類/回歸 | 多層集成 | 性能優異 | 複雜度高 |
 | **聚類算法** |
 | K-Means | 聚類 | 球形簇 | 快速 | 需指定K |
+| 🆕 DBSCAN | 聚類 | 任意形狀簇 | 自動檢測簇數 | 參數敏感 |
+| 🆕 層次聚類 | 聚類 | 需要樹狀圖 | 不需指定K | 計算慢 |
 | **降維算法** |
 | PCA | 降維 | 高維可視化 | 去相關 | 難解釋 |
+| 🆕 t-SNE | 降維可視化 | 非線性降維 | 保留局部結構 | 計算慢 |
+| 🆕 UMAP | 降維可視化 | 大規模數據 | 快速，保留結構 | 參數多 |
+| **異常檢測** |
+| 🆕 Isolation Forest | 異常檢測 | 高維數據 | 快速，無監督 | 需調參 |
+| 🆕 One-Class SVM | 異常檢測 | 小樣本 | 靈活 | 計算慢 |
+| **時間序列** |
+| 🆕 ARIMA | 時間序列預測 | 平穩序列 | 經典方法 | 需平穩性 |
+| 🆕 SARIMA | 時間序列預測 | 季節性數據 | 處理季節性 | 參數複雜 |
+| **NLP** |
+| 🆕 TF-IDF | 文本特徵 | 文本分類 | 簡單有效 | 不考慮語義 |
+| 🆕 Word2Vec | 詞嵌入 | 語義相似度 | 捕捉語義 | 需大量數據 |
 
 ### 🤝 貢獻
 
