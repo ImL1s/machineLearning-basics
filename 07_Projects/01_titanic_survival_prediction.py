@@ -11,6 +11,11 @@ Titanic Survival Prediction
 6. 結果解釋
 """
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+from utils import RANDOM_STATE, TEST_SIZE, DPI, setup_chinese_fonts, save_figure, get_output_path
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -23,8 +28,7 @@ from sklearn.metrics import classification_report, confusion_matrix, roc_auc_sco
 import warnings
 warnings.filterwarnings('ignore')
 
-plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei']
-plt.rcParams['axes.unicode_minus'] = False
+setup_chinese_fonts()
 
 print("=" * 90)
 print("實戰項目：泰坦尼克號生存預測".center(90))
@@ -37,7 +41,7 @@ print("\n【第1步】創建/加載數據")
 print("-" * 90)
 
 # 創建模擬的泰坦尼克號數據
-np.random.seed(42)
+np.random.seed(RANDOM_STATE)
 n_samples = 891
 
 # 生成模擬數據
@@ -266,7 +270,7 @@ print("\n【第5步】分割數據")
 print("-" * 90)
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=42, stratify=y
+    X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
 )
 
 print(f"訓練集大小：{X_train.shape}")
@@ -284,9 +288,9 @@ print("\n【第6步】訓練多個模型")
 print("-" * 90)
 
 models = {
-    'Logistic Regression': LogisticRegression(random_state=42, max_iter=1000),
-    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=42),
-    'Gradient Boosting': GradientBoostingClassifier(n_estimators=100, random_state=42)
+    'Logistic Regression': LogisticRegression(random_state=RANDOM_STATE, max_iter=1000),
+    'Random Forest': RandomForestClassifier(n_estimators=100, random_state=RANDOM_STATE),
+    'Gradient Boosting': GradientBoostingClassifier(n_estimators=100, random_state=RANDOM_STATE)
 }
 
 results = {}
@@ -434,7 +438,7 @@ ax12.set_title('Survival Rate by Family Size', fontweight='bold')
 ax12.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
-plt.savefig('07_Projects/titanic_analysis_results.png', dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('titanic_analysis_results.png', 'Projects'))
 print("\n✓ 分析結果圖表已保存")
 
 # ============================================================================

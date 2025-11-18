@@ -15,7 +15,7 @@ import seaborn as sns
 import re
 import string
 from collections import Counter
-from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots
+from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots, DPI, save_figure, get_output_path
 
 # 尝试导入 NLP 相关库 / Try importing NLP libraries
 try:
@@ -709,8 +709,7 @@ axes[1, 1].set_ylabel('文本数 / Text Count', fontsize=10)
 axes[1, 1].set_title('文本长度分布\nText Length Distribution', fontsize=12, fontweight='bold')
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_preprocessing_comparison.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_preprocessing_comparison.png'))
 print("✓ 图表已保存: output/nlp_preprocessing_comparison.png")
 plt.show()
 
@@ -748,8 +747,7 @@ if NLTK_AVAILABLE:
     ax.grid(axis='y', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('/home/user/machineLearning-basics/output/nlp_stemming_vs_lemmatization.png',
-                dpi=150, bbox_inches='tight')
+    save_figure(fig, get_output_path('nlp_stemming_vs_lemmatization.png'))
     print("✓ 图表已保存: output/nlp_stemming_vs_lemmatization.png")
     plt.show()
 
@@ -778,8 +776,7 @@ if WORDCLOUD_AVAILABLE:
                       fontsize=13, fontweight='bold', pad=20)
 
     plt.tight_layout()
-    plt.savefig('/home/user/machineLearning-basics/output/nlp_wordcloud_comparison.png',
-                dpi=150, bbox_inches='tight')
+    save_figure(fig, get_output_path('nlp_wordcloud_comparison.png'))
     print("✓ 图表已保存: output/nlp_wordcloud_comparison.png")
     plt.show()
 
@@ -841,8 +838,7 @@ if NLTK_AVAILABLE and len(all_tokens_no_stop) > 0:
                         fontsize=10, fontweight='bold')
 
     plt.tight_layout()
-    plt.savefig('/home/user/machineLearning-basics/output/nlp_ngrams_analysis.png',
-                dpi=150, bbox_inches='tight')
+    save_figure(fig, get_output_path('nlp_ngrams_analysis.png'))
     print("✓ 图表已保存: output/nlp_ngrams_analysis.png")
     plt.show()
 
@@ -881,8 +877,7 @@ ax.set_title('文本预处理流程图\nText Preprocessing Pipeline',
              fontsize=15, fontweight='bold', pad=20)
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_preprocessing_pipeline.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_preprocessing_pipeline.png'))
 print("✓ 图表已保存: output/nlp_preprocessing_pipeline.png")
 plt.show()
 

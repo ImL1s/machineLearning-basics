@@ -1,0 +1,43 @@
+{
+  "model_type": "RandomForestClassifier",
+  "model_version": "1.0.0",
+  "trained_date": "2025-11-18T10:23:14.935253",
+  "features": [
+    "sepal length (cm)",
+    "sepal width (cm)",
+    "petal length (cm)",
+    "petal width (cm)"
+  ],
+  "target_names": [
+    "setosa",
+    "versicolor",
+    "virginica"
+  ],
+  "n_features": 4,
+  "n_classes": 3,
+  "train_score": 1.0,
+  "test_score": 0.9,
+  "feature_importance": [
+    {
+      "feature": "petal width (cm)",
+      "importance": 0.4371853558096363
+    },
+    {
+      "feature": "petal length (cm)",
+      "importance": 0.43146640568097017
+    },
+    {
+      "feature": "sepal length (cm)",
+      "importance": 0.11634850540739942
+    },
+    {
+      "feature": "sepal width (cm)",
+      "importance": 0.014999733101994138
+    }
+  ],
+  "model_params": {
+    "n_estimators": 100,
+    "max_depth": 10,
+    "random_state": 42
+  }
+}

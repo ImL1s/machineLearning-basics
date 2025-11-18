@@ -17,6 +17,11 @@ House Price Prediction (Regression)
 - 優化投資決策
 """
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+from utils import RANDOM_STATE, TEST_SIZE, DPI, setup_chinese_fonts, save_figure, get_output_path
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -37,18 +42,15 @@ warnings.filterwarnings('ignore')
 
 # 設置隨機種子以確保可重現性
 # Set random seed for reproducibility
-RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
 # 設置中文字體
 # Set Chinese font
-plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei', 'DejaVu Sans']
-plt.rcParams['axes.unicode_minus'] = False
+setup_chinese_fonts()
 
 # 設置繪圖風格
 # Set plotting style
 sns.set_style("whitegrid")
-plt.rcParams['figure.dpi'] = 100
 
 print("=" * 100)
 print("實戰項目：房價預測（回歸任務）".center(100))
@@ -405,6 +407,7 @@ ax12.legend(fontsize=8)
 ax12.grid(True, alpha=0.3)
 
 plt.tight_layout()
+save_figure(fig, get_output_path('house_price_eda.png', 'Projects'))
 print("✓ 已生成 12 張可視化圖表 Generated 12 visualization charts")
 
 # ============================================================================
@@ -546,7 +549,7 @@ print(f"✓ 目標變量形狀 Target shape: {y.shape}")
 
 # 劃分訓練集和測試集 Split train and test sets
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=RANDOM_STATE
+    X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE
 )
 
 print(f"✓ 訓練集大小 Training set: {X_train.shape[0]} samples")
@@ -836,6 +839,7 @@ ax21.set_title('Chart 21: Error Percentage Distribution\n預測誤差百分比�
 ax21.grid(True, alpha=0.3)
 
 plt.tight_layout()
+save_figure(fig2, get_output_path('house_price_evaluation.png', 'Projects'))
 print("✓ 已生成 9 張評估可視化圖表 Generated 9 evaluation visualization charts")
 
 # ============================================================================

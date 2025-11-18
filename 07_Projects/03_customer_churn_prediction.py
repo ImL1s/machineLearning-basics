@@ -19,6 +19,11 @@ Customer Churn Prediction (Imbalanced Classification)
 - 提高客戶生命週期價值
 """
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
+from utils import RANDOM_STATE, TEST_SIZE, DPI, setup_chinese_fonts, save_figure, get_output_path
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -48,18 +53,15 @@ except ImportError:
 
 # 設置隨機種子以確保可重現性
 # Set random seed for reproducibility
-RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
 # 設置中文字體
 # Set Chinese font
-plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei', 'DejaVu Sans']
-plt.rcParams['axes.unicode_minus'] = False
+setup_chinese_fonts()
 
 # 設置繪圖風格
 # Set plotting style
 sns.set_style("whitegrid")
-plt.rcParams['figure.dpi'] = 100
 
 print("=" * 100)
 print("實戰項目：客戶流失預測（不平衡分類任務）".center(100))
@@ -458,6 +460,7 @@ ax12.legend(['No Partner', 'Has Partner'], fontsize=9)
 ax12.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+save_figure(fig, get_output_path('customer_churn_eda.png', 'Projects'))
 print("✓ 已生成 12 張EDA可視化圖表 Generated 12 EDA visualization charts")
 
 # ============================================================================
@@ -577,7 +580,7 @@ print(f"✓ 類別分佈 Class distribution:\n{y.value_counts()}")
 
 # 劃分訓練集和測試集（使用分層抽樣）Split train/test with stratification
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=RANDOM_STATE, stratify=y
+    X, y, test_size=TEST_SIZE, random_state=RANDOM_STATE, stratify=y
 )
 
 print(f"\n✓ 訓練集大小 Training set: {X_train.shape[0]} samples")
@@ -956,6 +959,7 @@ ax21.set_title('Chart 21: Error Analysis\n錯誤分析', fontsize=11, fontweight
 ax21.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+save_figure(fig2, get_output_path('customer_churn_evaluation.png', 'Projects'))
 print("✓ 已生成 9 張評估可視化圖表 Generated 9 evaluation visualization charts")
 
 # ============================================================================

@@ -19,7 +19,7 @@ from sklearn.decomposition import PCA
 import warnings
 warnings.filterwarnings('ignore')
 
-from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots
+from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots, DPI, save_figure, get_output_path
 
 # 尝试导入 Gensim（Word2Vec）
 try:
@@ -458,8 +458,7 @@ ax.set_ylabel('文档 / Documents', fontsize=11)
 plt.xticks(rotation=45, ha='right')
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_bow_heatmap.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_bow_heatmap.png'))
 print("✓ 图表已保存: output/nlp_bow_heatmap.png")
 plt.show()
 
@@ -537,8 +536,7 @@ for i in range(len(documents)):
 plt.colorbar(im, ax=axes[1, 1], label='余弦相似度 / Cosine Similarity')
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_tfidf_analysis.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_tfidf_analysis.png'))
 print("✓ 图表已保存: output/nlp_tfidf_analysis.png")
 plt.show()
 
@@ -637,8 +635,7 @@ if GENSIM_AVAILABLE:
                        fontsize=10, fontweight='bold')
 
     plt.tight_layout()
-    plt.savefig('/home/user/machineLearning-basics/output/nlp_word2vec_visualization.png',
-                dpi=150, bbox_inches='tight')
+    save_figure(fig, get_output_path('nlp_word2vec_visualization.png'))
     print("✓ 图表已保存: output/nlp_word2vec_visualization.png")
     plt.show()
 
@@ -730,8 +727,7 @@ axes[1, 1].text(0.1, 0.95, summary_text, ha='left', va='top',
                bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.3))
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_methods_comparison.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_methods_comparison.png'))
 print("✓ 图表已保存: output/nlp_methods_comparison.png")
 plt.show()
 

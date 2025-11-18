@@ -29,7 +29,7 @@ from sklearn.metrics import (classification_report, confusion_matrix,
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import label_binarize
 
-from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots
+from utils import RANDOM_STATE, setup_chinese_fonts, create_subplots, DPI, save_figure, get_output_path
 
 # 尝试导入深度学习库
 try:
@@ -598,8 +598,7 @@ axes[1, 1].legend(fontsize=10)
 axes[1, 1].grid(axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_classification_overview.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_classification_overview.png'))
 print("✓ 图表已保存: output/nlp_classification_overview.png")
 plt.show()
 
@@ -634,8 +633,7 @@ for idx in range(n_models, len(axes_flat)):
     axes_flat[idx].axis('off')
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_confusion_matrices.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_confusion_matrices.png'))
 print("✓ 图表已保存: output/nlp_confusion_matrices.png")
 plt.show()
 
@@ -658,8 +656,7 @@ if 'Random Forest' in models and hasattr(models['Random Forest'], 'feature_impor
     ax.grid(axis='x', alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('/home/user/machineLearning-basics/output/nlp_feature_importance.png',
-                dpi=150, bbox_inches='tight')
+    save_figure(fig, get_output_path('nlp_feature_importance.png'))
     print("✓ 图表已保存: output/nlp_feature_importance.png")
     plt.show()
 
@@ -713,8 +710,7 @@ ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.0), fontsize=10)
 ax.grid(True)
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_performance_radar.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_performance_radar.png'))
 print("✓ 图表已保存: output/nlp_performance_radar.png")
 plt.show()
 
@@ -772,8 +768,7 @@ if DATA_LOADED and len(X_train_text) > 100:
         ax.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('/home/user/machineLearning-basics/output/nlp_learning_curve.png',
-                    dpi=150, bbox_inches='tight')
+        save_figure(fig, get_output_path('nlp_learning_curve.png'))
         print("✓ 图表已保存: output/nlp_learning_curve.png")
         plt.show()
     except Exception as e:
@@ -821,8 +816,7 @@ ax.set_ylim([0, 1.1])
 ax.grid(axis='y', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/home/user/machineLearning-basics/output/nlp_comprehensive_performance.png',
-            dpi=150, bbox_inches='tight')
+save_figure(fig, get_output_path('nlp_comprehensive_performance.png'))
 print("✓ 图表已保存: output/nlp_comprehensive_performance.png")
 plt.show()
 
