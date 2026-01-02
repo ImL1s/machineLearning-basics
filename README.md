@@ -1,13 +1,28 @@
 # 機器學習完整教程 | Machine Learning Complete Tutorial
 
+<div align="center">
+
+**從零到深入的機器學習全攻略：理論、算法與實踐**
+
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-latest-orange.svg)](https://scikit-learn.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🎓 從零開始的機器學習完整學習路徑
-> 📚 涵蓋基礎概念、經典算法、深度學習、實戰項目
-> 💡 理論與實踐結合，包含完整代碼示例
+</div>
+
+---
+
+## 📖 目錄 (Table of Contents)
+- [✨ 專案特色](#-特色)
+- [🚀 快速開始](#-快速開始)
+- [🛠️ 依賴安裝指南](#-依賴安裝指南)
+- [📚 學習路徑分階段詳解](#-學習路徑)
+- [🕐 時間序列分析 (TimeSeries)](#🕐-時間序列分析模塊3-python--4-md2706-行代碼)
+- [📝 自然語言處理 (NLP)](#📝-自然語言處理基礎模塊3-python2668-行代碼)
+- [📊 算法摘要與對比](#-核心算法總結)
+
+---
 
 [中文](#中文文檔) | [English](#english-documentation)
 
@@ -158,39 +173,17 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-#### 3. 安裝依賴
+### 🛠️ 依賴安裝指南 (Installation Matrix)
 
-我們提供了分層的依賴文件，您可以根據需求選擇安裝：
+我們提供了分層的依賴文件，請根據您的學習階段選擇：
 
-**方式 1：最小安裝（推薦初學者，約 2 分鐘）**
-```bash
-pip install -r requirements.txt
-```
-包含：NumPy、Pandas、Matplotlib、Seaborn、scikit-learn
-
-**方式 2：完整機器學習功能（約 3 分鐘）**
-```bash
-pip install -r requirements.txt -r requirements-ml.txt
-```
-額外包含：XGBoost、LightGBM、imbalanced-learn
-
-**方式 3：包含深度學習（約 10 分鐘，較大）**
-```bash
-pip install -r requirements.txt -r requirements-dl.txt
-```
-額外包含：TensorFlow/Keras（約 500MB）
-
-**方式 4：開發環境（含 Jupyter）**
-```bash
-pip install -r requirements.txt -r requirements-dev.txt
-```
-額外包含：JupyterLab、Notebook
-
-**方式 5：完整安裝（所有功能，約 15 分鐘）**
-```bash
-pip install -r requirements.txt -r requirements-ml.txt -r requirements-dl.txt -r requirements-advanced.txt
-```
-包含所有工具（SHAP、LIME、Optuna 等）
+| 安裝模式 (Mode) | 命令 (Command) | 包含功能 (Features) | 推薦對象 |
+| :--- | :--- | :--- | :--- |
+| **最小安裝** | `pip install -r requirements.txt` | NumPy, Pandas, Scikit-Learn | 初學者/基礎教程 |
+| **機器學習加強** | `... -r requirements-ml.txt` | XGBoost, LightGBM, Imbal-learn | 參與競賽/進階者 |
+| **深度學習擴充** | `... -r requirements-dl.txt` | TensorFlow / Keras (較大) | 深度學習研究者 |
+| **專業開發模式** | `... -r requirements-dev.txt` | JupyterLab, Notebook, Pytest | 開發與筆記愛好者 |
+| **全方位安裝** | `... -r requirements-advanced.txt` | SHAP, LIME, Optuna | 高級分析師 |
 
 #### 4. 運行示例
 
