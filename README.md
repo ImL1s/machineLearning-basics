@@ -5,6 +5,7 @@
 **從零到深入的機器學習全攻略：理論、算法與實踐**
 
 [![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Build Status](https://github.com/ImL1s/machineLearning-basics/actions/workflows/ci.yml/badge.svg)](https://github.com/ImL1s/machineLearning-basics/actions/workflows/ci.yml)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-latest-orange.svg)](https://scikit-learn.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://www.tensorflow.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
