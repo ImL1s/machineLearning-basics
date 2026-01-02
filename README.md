@@ -185,6 +185,24 @@ source venv/bin/activate
 | **專業開發模式** | `... -r requirements-dev.txt` | JupyterLab, Notebook, Pytest | 開發與筆記愛好者 |
 | **全方位安裝** | `... -r requirements-advanced.txt` | SHAP, LIME, Optuna | 高級分析師 |
 
+---
+
+## 🧠 核心基礎與深層原理 (Deep Dive)
+
+### 1. 機器學習的數學核心 (Mathematical Foundations)
+要真正理解 ML，必須掌握以下三大支柱：
+- **線性代數**：矩陣運算是一切算法的語言（如 PCA 的特徵值分解）。
+- **微積分**：**梯度下降 (Gradient Descent)** 依賴於對損失函數求導，找出參數的最優解。
+- **機率統計**：理解正則化、極大似然估計 (MLE) 以及貝葉斯推斷。
+
+### 2. 反向傳播 (Backpropagation) 運作原理
+在深度學習中，模型如何「學習」？
+- **前向傳播**：數據經過神經網路得到預測值。
+- **計算損失**：衡量預測與現實的差距。
+- **鏈式法則 (Chain Rule)**：將誤差從輸出層反向傳回輸入層，更新每一層的權重。本專案的 `06_DeepLearning` 章節中有手動實現簡易神經網路的範例。
+
+---
+
 #### 4. 運行示例
 
 ```bash
