@@ -723,6 +723,12 @@ Contributions are welcome! Feel free to:
 - 📝 Improve documentation
 - 🔨 Submit pull requests
 
+---
+
+### 支持
+
+如果這個專案幫你省了點時間，可以[請我喝杯咖啡](https://buymeacoffee.com/iml1s)。
+
 ### 📄 License
 
 MIT License - see LICENSE file for details
